@@ -1,41 +1,59 @@
-//pide datos de n personas
+/*Programa que solicita datos personales, halla la cantidad de personas mayores y 
+el promedio de las edaees introducidas*/
+
 #include <iostream>
+#include <string>// Necesario para delimitar la longitud de una cadena
 using namespace std;
 
+//Registro
 struct persona{
-    string nombre;
+    string nombre;    
     string DNI;
     int edad;
 };
+
+//Funcion para delimitar los digitos introducidos del DNI a 8
+void LimitarDNI(string& DNI);
 
 int main(){
     int n;
     cin>>n;
     persona personas[n];
     int cantdePersonasMayores=0;
-    int sumadeEdades=0;
+    int sumE=0;
 
-    // Datos de las personas
+    //Solicita datos personales
     for(int i=0;i<n;i++){
         cout<<"Nombre de la persona "<<i+1<<": ";
         cin>>personas[i].nombre;
-        cout<<"DNI: ";
-        cin>>personas[i].DNI;
+        LimitarDNI(personas[i].DNI);
         cout<<"Edad: ";
         cin>>personas[i].edad;
+        cout<<"\n";
     }
     
-    //hallar la cantidad de personas mayores a 50 años y el promedio de las edades
+    //Halla la cantidad de personas mayores a 50 años y suma de edades
     for(int i=0;i<n;i++){
         if(personas[i].edad>50){
             cantdePersonasMayores++;
         }
-        sumadeEdades+=personas[i].edad;
+        /*sumE: Suma de edades*/
+        sumE+=personas[i].edad;
     }
 
     //Mostrar los resultados
     cout<<"Hay "<<cantdePersonasMayores<<" personas mayores a 50 años"<<endl;
-    cout<<"Promedio de las edades: "<<sumadeEdades/n<<endl;
+    cout<<"Promedio de las edades: "<<sumE/n<<endl;
     return 0;
+}
 
+void LimitarDNI(string& DNI){
+    while(true){
+        cout<<"DNI: ";
+        cin>>DNI;
+        if(DNI.length()==8)
+            break;
+        else 
+            cout<<"Intente otra vez "<<endl;
+    }
 }
