@@ -26,7 +26,7 @@ int main(){
     for(int i=0;i<n;i++){
         cout<<"Nombre de la persona "<<i+1<<": ";
         cin>>personas[i].nombre;
-        LimitarDNI(personas[i].DNI);
+        /*LimitarDNI(personas[i].DNI);*/
         cout<<"Edad: ";
         cin>>personas[i].edad;
         cout<<"\n";
@@ -43,11 +43,21 @@ int main(){
 
     //Mostrar los resultados
     cout<<"Hay "<<cantdePersonasMayores<<" personas mayores a 50 años"<<endl;
-    cout<<"Promedio de las edades: "<<sumE/n<<endl;
-    return 0;
+    cout<<"Promedio de las edades: "<<sumE/n;
+
+    //Datos de las personas ingresadas 
+    cout<<"\nDatos de las personas ingresadas:\n";
+    for(int i=0;i<n;i++){
+      cout<<personas[i].nombre<<"\t"<<personas[i].edad<<"\t";
+      //hay problemas con la variable DNI, no fue una buena idea usar void
+      cout<<endl;
+    }
+    return 0; 
 }
 
-void LimitarDNI(string& DNI){
+//Falta modificar este procedimieto 
+//Cambiar el procedimieto por una funcion que retorne solo el DNI
+/*void LimitarDNI(string& DNI){
     while(true){
         cout<<"DNI: ";
         cin>>DNI;
@@ -56,4 +66,4 @@ void LimitarDNI(string& DNI){
         else 
             cout<<"Intente otra vez "<<endl;
     }
-}
+}*/
