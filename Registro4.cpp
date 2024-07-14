@@ -11,6 +11,7 @@ using namespace std;
 
 int main(){
     int n;
+    cout<<"Numero de atletas: ";
     cin>>n;
     Atleta atletas[n]; //arreglo de tipo Atleta
 
@@ -30,11 +31,11 @@ int main(){
     cout<<"Pais a buscar: ";cin>>EncontrarPais;
 
     int Encontrados=0;
-
+    int MaxMed=-1;
     //Variable del tipo Atleta
     Atleta atletaconMaxMed; 
 
-    cout<<"Datos de los atleta de "<<EncontrarPais<<endl;
+    cout<<"Datos de los atletas de "<<EncontrarPais<<endl;
 
     //Buscar a los atletas del pais ingresado 
     for(int i=0;i<n;i++){
@@ -42,11 +43,18 @@ int main(){
             cout<<"Nombre del atleta:\t"<<atletas[i].nombre<<"\n";
             cout<<"Pais del atleta:\t"<<atletas[i].pais<<"\n";
             cout<<"Disciplina del atleta:\t"<<atletas[i].disciplina<<"\n";
-            cout<<"Número de medallas del atleta:\t"<<atletas[i].Nmedallas;
+            cout<<"Número de medallas del atleta:\t"<<atletas[i].Nmedallas<<"\n";
             cout<<endl;
+
+            //Actualizar el atleta con más medallas sienndo -1 el primer dato que compara
+            if(atletas[i].Nmedallas>MaxMed){
+                MaxMed=atletas[i].Nmedallas;
+                atletaconMaxMed=atletas[i];
+            }
+           Encontrados++;
         }
-        Encontrados++;
     }
 
+    cout<<"Atleta con el maximo de medallas: "<<atletaconMaxMed.nombre<<endl;
     return 0;
 }
