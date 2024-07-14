@@ -13,7 +13,7 @@ int main(){
     int n;
     cout<<"Cantidad de personas: ";cin>>n;
     persona personas[n];
-
+    
     for(int i=0;i<n;i++){
     cout<<"Nombre de la persona "<<i+1<<": "; 
     cin>>personas[i].nombre;
@@ -24,15 +24,18 @@ int main(){
 
     //Numero de mes a buscar
     int mes;
+    cout<<"Mes a buscar: ";cin>>mes;
 
     //Mostrar los datos de las personas que cumplan en ese mes
-    cout<<"Mes a buscar: ";cin>>mes;
-    for(int i=0;i<n;i++){
+    while(mes!=0){
+        for(int i=0;i<n;i++){
         if(personas[i].mesdeNacimiento==mes){
             cout<<personas[i].nombre<<endl;
             cout<<personas[i].diadeNacimiento<<"/"<<personas[i].mesdeNacimiento<<"/"<<personas[i].yeardeNacimiento<<endl;
             cout<<endl;
         }
     }
+    }
+    
     return 0;
 }
