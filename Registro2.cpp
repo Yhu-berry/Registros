@@ -50,12 +50,14 @@ int main(){
 
     //Mostrar los resultados
     if(cantMay==1)
-    cout<<"Hay "<<cantMay<<"una persona mayor a 50 años"<<endl;
+    cout<<"Hay "<<cantMay<<"persona mayor a 50 años"<<endl;
     else if(cantMay>1)
     cout<<"Hay "<<cantMay<<" personas mayores a 50 años"<<endl;
     else 
     cout<<"No hay personas mayores a 50 años"<<endl;
-    cout<<"Promedio de las edades: "<<sumE/n;
+    double P;
+    P=(double)sumE/n;  //Calcula el promedio de edades
+    cout<<"Promedio de las edades: "<<P;
 
     //Datos de las personas ingresadas 
     cout<<"\nDatos de las personas ingresadas:\n";
